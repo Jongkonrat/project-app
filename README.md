@@ -4,9 +4,12 @@ Don't need to push composer or anything about services such as composer.lock, se
 
 
 ## Can't start the server? ##
-Try to delete file inside bootstrap/cache (In my directory, It's gitignore), then cd bootstrap/cache.
-Type 'composer update' and then Enter.
+Bring '.env' from other project to this proj.
+Try to delete file inside 'bootstrap/cache' (In my directory, It's gitignore), then 'cd bootstrap/cache'.
+Type 'composer update' in command line and then Enter.
 Try to start the server again
+
+If it's still error, try to enter 'composer install' and 'composer dump-autoload' then enter 'composer update' again
 
 
 
