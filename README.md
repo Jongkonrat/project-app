@@ -1,3 +1,24 @@
+!!!! IMPORTANT !!!!
+Please push only new/existing file you edited. 
+Don't need to push composer or anything about services such as composer.lock, services.php, packages.php or anything else. When others fetch origin, the project will be broken or can't start the server.
+
+
+## Can't start the server? ##
+Try to delete file inside bootstrap/cache (In my directory, It's gitignore), then cd bootstrap/cache.
+Type 'composer update' and then Enter.
+Try to start the server again
+
+
+
+
+
+
+
+
+
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
