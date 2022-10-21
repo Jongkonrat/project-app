@@ -84,4 +84,40 @@ class ProductController extends Controller
     {
         //
     }
+
+    public function cart(){
+        $carts= DB::select('select * from carts');
+        return view('cart',['carts'=>$carts]);
+    }
+
+    public function remove($id){
+        $cart= Cart::findOrFail($id);
+        $product= Product::where('name', '=', $cart->name)->first();
+        DB::transaction(function() use($product,$cart){
+            $product->stock=$product->stock+$cart->quantity;
+            $product->save();
+            $cart->delete(); 
+        });
+        return back()->with('success', 'Product removed successfully');
+    }
+    
+    public function addToCart($id){
+        $product= Product::findOrFail($id);
+        $cart= Cart::where('name', '=', $product->name)->first();
+        DB::transaction(function() use($product,$cart){
+            if($cart!= null) {
+                $cart->quantity= $cart->quantity+1;
+                $cart->save();
+            } else{
+                $cart= new Cart();
+                $cart->name= $product->name;
+                $cart->quantity= 1;
+                $cart->price= $product->price;
+                $cart->image= $product->image;
+                $cart->save();
+            }
+            $product->stock= $product->stock-1;
+            $product->save();
+        });
+        return redirect()->back()->with('success', 'Product added to cart successfully!');}
 }
