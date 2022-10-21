@@ -18,7 +18,9 @@
                                 <p>{{ $product->productDescription }}</p>
                                 <p>{{ $product->quantityInStock }}</p>
                                 <p><strong>Price: </strong>{{ $product->buyPrice }}$</p>
-                                <!--  -->
+                                <p class="btn-holder">
+                                    <!-- <a href="{{ route('add.to.cart', $product->id) }}" class="btnbtn-warning btn-block text-center" role="button"> -->
+                                        Add to cart</a></p>
                             </div>
                         </div>
                     </div>
