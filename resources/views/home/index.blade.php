@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="bg-light p-5 rounded">
-    <!-- @auth
+    @auth
     <h1>Products</h1>
     <p class="lead">
         Choose the product that you want to buy.</p>
@@ -26,9 +26,9 @@
                 </div>
             </div>
         </div>
-        @endauth -->
+        @endauth
         
-        <!-- @guest -->
+        @guest
         <h1>Homepage</h1>
         <p class="lead">You have to login before buy the products.</p>
         <div class="flex-center position-ref full-height">
@@ -51,6 +51,6 @@
                 </div>
             </div>
         </div>
-        <!-- @endguest -->
+        @endguest
     </div>
 @endsection

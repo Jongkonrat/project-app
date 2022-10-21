@@ -23,7 +23,14 @@ Route::group(['namespace'=> 'App\Http\Controllers'], function()
      */
     Route::get('/', 'HomeController@index')->name('home.index');
     
+
     Route::group(['middleware'=> ['guest']], function() {
+        /*** Home Routes
+     */
+      Route::get('/', 'ProductController@index')->name('home.index');
+
+      
+        
          /**
           * Register Routes
          */
