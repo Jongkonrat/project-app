@@ -46,7 +46,7 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($productCode)
     {
         //
     }
@@ -90,8 +90,8 @@ class ProductController extends Controller
         return view('cart',['carts'=>$carts]);
     }
 
-    public function remove($id){
-        $cart= Cart::findOrFail($id);
+    public function remove($productCode){
+        $cart= Cart::findOrFail($productCode);
         $product= Product::where('name', '=', $cart->name)->first();
         DB::transaction(function() use($product,$cart){
             $product->stock=$product->stock+$cart->quantity;
@@ -101,8 +101,8 @@ class ProductController extends Controller
         return back()->with('success', 'Product removed successfully');
     }
     
-    public function addToCart($id){
-        $product= Product::findOrFail($id);
+    public function addToCart($productCode){
+        $product= Product::findOrFail($productCode);
         $cart= Cart::where('name', '=', $product->name)->first();
         DB::transaction(function() use($product,$cart){
             if($cart!= null) {
