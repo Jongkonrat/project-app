@@ -20,7 +20,7 @@
     <div class="form-group from-floating mb-3">
         <input type="password" class="form-control" name="password" value="{{ old('password') }}" placeholder="Password" required="required">
         <label for="floatingPassword">Password</label>
-        @if ($errord->has('password'))
+        @if ($errors->has('password'))
             <span class="text-danger text-left">{{ $errors->first('password') }}</span>
         @endif
     </div>
