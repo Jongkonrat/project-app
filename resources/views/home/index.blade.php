@@ -11,6 +11,7 @@
                 <div class="row">
                     @foreach($products as $product)
                     <div class="col-xs-18 col-sm-6 col-md-3">
+                        @if ($product->productLine = 'Motorcycles')
                         <div class="thumbnail">
                             <img src="{{ $product->image }}"alt="">
                             <div class="caption">
@@ -23,6 +24,7 @@
                                         Add to cart</a></p>
                             </div>
                         </div>
+                        @endif
                     </div>
                     @endforeach
                 </div>
@@ -36,19 +38,25 @@
         <div class="flex-center position-ref full-height">
             <div class="content">
                 <p>What we have in stocks.</p>
+
                 <div class="row">
                     @foreach($products as $product)
-                    <div class="col-xs-18 col-sm-6 col-md-3">
-                        <div class="thumbnail">
-                            <img src="{{ $product->image }}"alt="">
-                            <div class="caption">
-                            <h4>{{ $product->productName }}</h4>
-                                <p>{{ $product->productDescription }}</p>
-                                <p>{{ $product->quantityInStock }}</p>
-                                <p><strong>Price: </strong>{{ $product->buyPrice }}$</p>
-                            </div>
+                        @if ($product->productLine == 'Classic Cars')
+                        <div class="col-xs-18 col-sm-6 col-md-3">
+                                <div class="thumbnail">
+                                    <img src="{{ $product->image }}"alt="">
+                                    <div class="caption">
+                                    <h4>{{ $product->productName }}</h4>
+                                        <p>{{ $product->productDescription }}</p>
+                                        <p>{{ $product->quantityInStock }}</p>
+                                        <p>{{$product->productLine}}</p>
+                                        <p>{{$product->productVendor}}</p>
+                                        <p><strong>Price: </strong>{{ $product->buyPrice }}$</p>
+                                    </div>
+                                </div>
                         </div>
-                    </div>
+                        @endif
+                    
                     @endforeach
                 </div>
             </div>
