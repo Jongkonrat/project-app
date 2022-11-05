@@ -26,8 +26,4 @@ class Customer extends Model
         'country'
     ];
 
-<<<<<<< Updated upstream
 }
-=======
-}
->>>>>>> Stashed changes

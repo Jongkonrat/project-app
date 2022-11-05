@@ -3,18 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customer;
-<<<<<<< Updated upstream
-=======
 use App\Http\Requests\CustomerRequest;
->>>>>>> Stashed changes
+use App\Models\User;
 use Illuminate\Http\Request;
-
+use App\Http\Requests\RegisterRequest;
+// use Illuminate\Support\Facades\Auth;
 class CustomerController extends Controller
 {
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
     //
     /**
     * Display register page.
@@ -34,12 +30,20 @@ class CustomerController extends Controller
     */
     public function customer(CustomerRequest $request) 
     {
-        $customer = Customer::create($request->validated());
+        $customer = new Customer;
+        // $customer -> customerNumber = $id = Auth::id();
+        $customer -> customerName = $request-> customerName;
+        $customer ->contactFirstName = $request->contactFirstName;
+        $customer ->contactLastName = $request->contactLastName ;
+        $customer ->phone = $request->phone;
+        $customer ->addressLine1 = $request->addressLine1;
+        $customer ->addressLine2 = $request->addressLine2;
+        $customer ->city = $request->city;
+        $customer ->state = $request->state;
+        $customer ->postalCode = $request->postalCode;
+        $customer ->country = $request->country;
         // auth()->login($user);
-<<<<<<< Updated upstream
-        return redirect('/')->with('success', "Account successfully registered.");
-=======
+
         return redirect('/home')->with('success', "Account successfully registered.");
->>>>>>> Stashed changes
     }
 }

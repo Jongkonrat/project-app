@@ -18,12 +18,22 @@ class User extends Authenticatable
      * @var array<int, string>
      * 
      */
-    protected $primatyKey = 'id';
+    protected $primaryKey = 'id';
     protected $fillable = [
         'name',
         'email',
         'username',
         'password',
+        'customerName', 
+        'contactFirstName',
+        'contactLastName',
+        'phone',
+        'addressLine1',
+        'addressLine2',
+        'city',
+        'state',
+        'postalCode',
+        'country'
     ];
     public function setPasswordAttribute($value)
     {

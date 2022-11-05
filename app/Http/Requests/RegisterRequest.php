@@ -28,7 +28,17 @@ class RegisterRequest extends FormRequest
             'username' => 'required|unique:users,username',
             'password' => 'required|min:8',
             'password_confirmation' => 'required|same:password',
-            'name' => 'required'
+            'name' => 'required',
+            'customerName' => 'required',
+            'contactFirstName' => 'required',
+            'contactLastName' => 'required',
+            'phone' => 'required',
+            'addressLine1' => 'required',
+            
+            'city' => 'required',
+            
+            'postalCode' => 'required',
+            'country' => 'required'
         ];
     }
 }

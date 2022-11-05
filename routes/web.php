@@ -30,12 +30,12 @@ Route::group(['namespace'=> 'App\Http\Controllers'], function()
          /**
           * Register Routes
          */
-           Route::get('/customer', 'CustomerController@show')->name('customer.show');
-           Route::get('/customer', 'CustomerController@customer')->name('customer.perform');
+          //  Route::get('/customer', 'CustomerController@show')->name('customer.show');
+          //  Route::get('/customer', 'CustomerController@customer')->name('customer.perform');
            Route::get('/register', 'RegisterController@show')->name('register.show');
            Route::post('/register', 'RegisterController@register')->name('register.perform');
-           Route::get('/customer', 'CustomerController@show')->name('customer.show');
-           Route::post('/customer', 'CustomerController@customer')->name('customer.perform');
+          //  Route::get('/customer', 'CustomerController@show')->name('customer.show');
+          //  Route::post('/customer', 'CustomerController@customer')->name('customer.perform');
           /**
            * Login Routes
            */

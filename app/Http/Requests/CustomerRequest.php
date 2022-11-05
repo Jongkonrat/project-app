@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\User;
 
 class CustomerRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class CustomerRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -29,7 +30,7 @@ class CustomerRequest extends FormRequest
             'contactLastName' => 'required',
             'phone' => 'required',
             'addressLine1' => 'required',
-            'addressLine2' => 'required',
+            'addressLine2' => 'nullable',
             'city' => 'required',
             'state' => 'required',
             'postalCode' => 'required',
