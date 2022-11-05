@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\Customer;
 use App\Http\Requests\CustomerRequest;
 use App\Models\User;
@@ -52,3 +53,4 @@ class CustomerController extends Controller
         return redirect('/')->with('success', "Account successfully registered.");
     }
 }
+

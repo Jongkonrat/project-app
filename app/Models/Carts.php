@@ -9,6 +9,8 @@ class Carts extends Model
 {
     use HasFactory;
 
+    // protected $primaryKey = 'customerNumber';
+
     protected $fillable = [
         'customerNumber', 'productCode', 'quantity'
     ];
