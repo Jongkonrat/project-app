@@ -13,12 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('carts', function (Blueprint $table) {
-            $table->unsignedInteger('customerNumber')->nullable();
-            $table->string('productCode',15)->nullable();
-            $table->integer('quantity');
-            $table->timestamps();
-        });
+
+        if (!Schema::hasTable('carts')){
+            Schema::create('carts', function (Blueprint $table) {
+                $table->unsignedInteger('customerNumber')->nullable();
+                $table->string('productCode',15)->nullable();
+                $table->integer('quantity');
+                $table->timestamps();
+            });
+        }
+
     }
 
     /**
@@ -26,8 +30,10 @@ return new class extends Migration
      *
      * @return void
      */
-    public function down()
-    {
-        Schema::dropIfExists('carts');
-    }
+
+    // public function down()
+    // {
+    //     Schema::dropIfExists('carts');
+    // }
+
 };
