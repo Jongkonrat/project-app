@@ -1,7 +1,11 @@
 @extends('layouts.auth-master')
 @section('content')
 
+<<<<<<< Updated upstream
 <form method="post" action="{{ route('register.perform') }}">
+=======
+<form method="post" action="{{ route('customer.perform') }}">
+>>>>>>> Stashed changes
         <!-- customerName -->
         <div class="form-group form-floating mb-3">
         <input type="customerName" class="form-control" name="customerName" value="{{ old('customerName') }}" placeholder="customerName" required="required" autofocus>
