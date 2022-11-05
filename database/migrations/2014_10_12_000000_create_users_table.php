@@ -13,19 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        // Schema::create('users', function (Blueprint $table) {
-        //     $table->id();
-        //     $table->string('name')->nullable();
-        //     $table->string('email')->unique();
-        //     $table->string('username')->unique();
-        //     $table->timestamp('email_verified_at')->nullable();
-        //     $table->string('password');
-        //     $table->rememberToken();
-        //     $table->timestamps();
-        //  });
 
          if (!Schema::hasTable('users')){
-            //code
+            Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
             $table->string('email')->unique();
@@ -34,6 +24,8 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+         });
+            
         }
     }
 
