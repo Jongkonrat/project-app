@@ -13,6 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
+
         if (!Schema::hasTable('carts')){
             Schema::create('carts', function (Blueprint $table) {
                 $table->unsignedInteger('customerNumber')->nullable();
@@ -21,6 +22,7 @@ return new class extends Migration
                 $table->timestamps();
             });
         }
+
     }
 
     /**
@@ -28,8 +30,10 @@ return new class extends Migration
      *
      * @return void
      */
+
     // public function down()
     // {
     //     Schema::dropIfExists('carts');
     // }
+
 };
