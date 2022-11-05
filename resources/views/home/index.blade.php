@@ -11,17 +11,17 @@
                 <div class="row">
                     @foreach($products as $product)
                     <div class="col-xs-18 col-sm-6 col-md-3">
-                        @if ($product->productLine = 'Motorcycles')
+                        @if ($product->productLine = 'Classic Cars')
                         <div class="thumbnail">
                             <img src="{{ $product->image }}"alt="">
                             <div class="caption">
-                                <h4>{{ $product->productName }}</h4>
-                                <p>{{ $product->productDescription }}</p>
+                                <h4>{{ $product->productCode }}</h4>
+                                <a href="{{ url('description/' .$product->productCode)}}">
+                                <h4>{{ $product->productName }}</h4></a>
+                                <!-- <p>{{ $product->productDescription }}</p> -->
                                 <p>{{ $product->quantityInStock }}</p>
                                 <p><strong>Price: </strong>{{ $product->buyPrice }}$</p>
-                                <p class="btn-holder">
-                                    <a href="{{ route('add.to.cart', $product->productCode) }}" class="btnbtn-warning btn-block text-center" role="button">
-                                        Add to cart</a></p>
+                                <p class="btn-holder"><a href="{{ route('add.to.cart', $product->productCode) }}" class="btnbtn-warning btn-block text-center" role="button">Add to cart</a></p>
                             </div>
                         </div>
                         @endif
