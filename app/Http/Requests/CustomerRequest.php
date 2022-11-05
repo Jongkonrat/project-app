@@ -26,8 +26,8 @@ class CustomerRequest extends FormRequest
     {
         return [
             'customerName' => 'required',
-            'contactFirstName' => 'required',
             'contactLastName' => 'required',
+            'contactFirstName' => 'required',
             'phone' => 'required',
             'addressLine1' => 'required',
             'addressLine2' => 'nullable',

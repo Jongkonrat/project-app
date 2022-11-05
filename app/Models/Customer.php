@@ -25,5 +25,6 @@ class Customer extends Model
         'postalCode',
         'country'
     ];
+        public function user(){return $this->belongsTo('App\Models\User');}
 
 }

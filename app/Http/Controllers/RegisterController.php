@@ -26,10 +26,10 @@ class RegisterController extends Controller
     * 
     * @return \Illuminate\Http\Response
     */
-    public function register(RegisterRequest $requestr, CustomerRequest $requestc) 
+    public function register(RegisterRequest $request) 
     {
-        $user = User::create($requestr->validated());
+        $user = User::create($request->validated());
         auth()->login($user);
-        return redirect('/')->with('success', "Account successfully registered.");
+        return redirect('/customer')->with('success', "Account successfully registered.");
     }
 }

@@ -15,18 +15,19 @@ return new class extends Migration
     {
         if (!Schema::hasTable('customers')){
             Schema::create('customers', function (Blueprint $table) {
+                $table->foreign('customerNumber')->references('id')->on('users')->onDelete('cascade');
                 $table->string('customerName');
-                // $table->string('customerName')->nullable();
-                // $table->string('contactFirstName');
-                // $table->string('contactLastName');
-                // $table->Integer('phone');
-                // $table->string('addressLine1');
-                // $table->string('addressLine2')->nullable();
-                // $table->string('city');
-                // $table->string('state')->nullable();
-                // $table->string('postalCode');
-                // $table->string('country');
-                // $table->timestamps();
+                $table->string('customerName')->nullable();
+                $table->string('contactFirstName');
+                $table->string('contactLastName');
+                $table->Integer('phone');
+                $table->string('addressLine1');
+                $table->string('addressLine2')->nullable();
+                $table->string('city');
+                $table->string('state')->nullable();
+                $table->string('postalCode');
+                $table->string('country');
+                $table->timestamps();
             });
             //code
             

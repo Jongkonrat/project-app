@@ -28,13 +28,15 @@ class CustomerController extends Controller
     * 
     * @return \Illuminate\Http\Response
     */
+
+    
     public function customer(CustomerRequest $request) 
     {
         $customer = new Customer;
-        // $customer -> customerNumber = $id = Auth::id();
+        $customer -> customerNumber = auth()->user()->id;
         $customer -> customerName = $request-> customerName;
-        $customer ->contactFirstName = $request->contactFirstName;
         $customer ->contactLastName = $request->contactLastName ;
+        $customer ->contactFirstName = $request->contactFirstName;
         $customer ->phone = $request->phone;
         $customer ->addressLine1 = $request->addressLine1;
         $customer ->addressLine2 = $request->addressLine2;
@@ -42,8 +44,11 @@ class CustomerController extends Controller
         $customer ->state = $request->state;
         $customer ->postalCode = $request->postalCode;
         $customer ->country = $request->country;
+        $customer ->salesRepEmployeeNumber  =1002;
+        $customer ->creditLimit = null;
+        $customer->save();
         // auth()->login($user);
 
-        return redirect('/home')->with('success', "Account successfully registered.");
+        return redirect('/')->with('success', "Account successfully registered.");
     }
 }

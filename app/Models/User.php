@@ -20,20 +20,11 @@ class User extends Authenticatable
      */
     protected $primaryKey = 'id';
     protected $fillable = [
-        'name',
+        
         'email',
         'username',
         'password',
-        'customerName', 
-        'contactFirstName',
-        'contactLastName',
-        'phone',
-        'addressLine1',
-        'addressLine2',
-        'city',
-        'state',
-        'postalCode',
-        'country'
+        
     ];
     public function setPasswordAttribute($value)
     {
@@ -58,6 +49,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public  function customer(){
+        return $this->hasOne('App\Models\Customer');
+    }
 
    
 }
