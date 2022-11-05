@@ -16,8 +16,11 @@ return new class extends Migration
 
         if (!Schema::hasTable('carts')){
             Schema::create('carts', function (Blueprint $table) {
+                $table->id();
                 $table->unsignedInteger('customerNumber')->nullable();
+                $table->string('productName')->nullable();
                 $table->string('productCode',15)->nullable();
+                $table->decimal('buyPrice',10,2);
                 $table->integer('quantity');
                 $table->timestamps();
             });

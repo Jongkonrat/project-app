@@ -18,18 +18,19 @@
     @php 
     $total = 0 ;
     $id = auth()->user()->id;
+    
     @endphp
         @foreach( $carts as $cart )
             
             @if($cart -> customerNumber == $id)
                 <tr>
-                    <td class="inner-table">{{ $cart -> customerNumber  }}</td>
-                    <td class="inner-table">{{ $id  }}</td>
+                    <td class="inner-table">{{ $cart -> productCode  }}</td>
+                    <td class="inner-table">{{ $cart -> productName  }}</td>
                     <td class="inner-table">{{ $cart->buyPrice }}</td>
                     <td class="inner-table">{{ $cart->quantity }}
                     <td data-th="Subtotal" class="text-center">{{$cart->buyPrice*$cart->quantity}}</td>
                     <td>
-                        <form action="{{ url('remove-from-cart/'.$cart->productCode) }}" method="POST">
+                        <form action="{{ url('remove-from-cart/'.$cart->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button class="btnbtn-danger"><i class="fa fa-trash-o"></i></button>
