@@ -1,6 +1,6 @@
 @extends('layouts.auth-master')
 @section('content')
-<form method="post" action="{{ route('register.perform') }}">
+<form method="post" action="{{ route('customer.perform') }}">
     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
     <img class="mb-4" src="{!! url('https://getbootstrap.com/docs/5.2/assets/brand/bootstrap-logo-shadow.png') !!}" alt="" width="72" height="57">
     <h1 class="h3 mb-3 fw-normal">Register</h1>
@@ -32,14 +32,9 @@
         <span class="text-danger text-left">{{ $errors->first('password_confirmation') }}</span>
         @endif
     </div>
-    <div class="form-group form-floating mb-3">
-        <input type="name" class="form-control" name="name" value="{{ old('name') }}" placeholder="Name" required="required" autofocus>
-        <label for="floatingEmail">Name</label>
-        @if ($errors->has('name'))
-        <span class="text-danger text-left">{{ $errors->first('name') }}</span>
-        @endif
-    </div>
-    <button class="w-100 btn btn-lg btn-primary" type="submit">Register</button>
+
+    <!--  -->
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Next</button>
     @include('auth.partials.copy')
 </form>
 @endsection
