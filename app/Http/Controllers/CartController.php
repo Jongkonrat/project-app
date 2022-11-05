@@ -22,9 +22,10 @@ class CartController extends Controller
         return view('cart',['carts'=>$carts]);
     }
 
-    public function remove($productCode){
-        $cart= Cart::findOrFail($productCode);
-        $product= Product::where('productCode', '=', $productCode)->first();
+    public function remove($id){
+        $cart= Carts::findOrFail($id);
+        $product= Product::where('productCode', '=', $cart->productCode)->
+        first();
         DB::transaction(function() use($product,$cart){
             $product->quantityInStock=$product->quantityInStock+$cart->quantity;
             $product->save();
@@ -35,7 +36,9 @@ class CartController extends Controller
     
     public function addToCart($productCode){
         $product= Product::findOrFail($productCode);
-        $cart = Carts::where('productCode', '=', $productCode)->first();
+        $cart = Carts::where('productCode', '=', $productCode)->
+        where('customerNumber','=',$userid = auth()->user()->id)->
+        first();
         
         DB::transaction(function() use($product,$cart){
             if($cart!= null) {
@@ -43,14 +46,15 @@ class CartController extends Controller
                 $cart->save();
             } else{
                 $cart= new Carts();
-                $cart->customerNumber = $id = auth()->user()->id;
+                $cart->customerNumber = $userid = auth()->user()->id;
                 $cart->productCode = $product-> productCode;
+                $cart->productName = $product-> productName;
                 $cart->quantity= 1;
                 $cart->buyPrice= $product->buyPrice;
                 $cart->save();
             }
-            // $product->quantityInStock= $product->quantityInStock-1;
-            // $product->save();
+            $product->quantityInStock= $product->quantityInStock-1;
+            $product->save();
         });
         return redirect()->back()->with('success', 'Product added to cart successfully!');}
 
