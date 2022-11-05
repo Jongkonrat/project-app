@@ -46,8 +46,12 @@ Route::group(['namespace'=> 'App\Http\Controllers'], function()
              * Logout Routes
              */
             Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
-            Route::get('/cart', 'ProductController@cart')->name('cart');
-            Route::get('/add-to-cart/{productCode}', 'ProductController@addToCart')->name('add.to.cart');
-            Route::delete('/remove-from-cart/{productCode}','ProductController@remove')->name('remove from cart');
+            // Route::get('/cart', 'ProductController@cart')->name('cart');
+            Route::get('/cart', 'CartController@cart')->name('cart');
+            Route::get('/add-to-cart/{productCode}', 'CartController@addToCart')->name('add.to.cart');
+            Route::delete('/remove-from-cart/{productCode}','CartController@remove')->name('remove from cart');
+
         });
+
+
     });
