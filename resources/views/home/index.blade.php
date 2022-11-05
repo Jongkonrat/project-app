@@ -12,16 +12,18 @@
                     @foreach($products as $product)
                     <div class="col-xs-18 col-sm-6 col-md-3">
                         @if ($product->productLine = 'Classic Cars')
-                        <div class="thumbnail">
-                            <img src="{{ $product->image }}"alt="">
+                        <div class="thumbnail ">
+                            <div class= "flex m-30 bg-white rounded-3xl shadow-2xl border-8 border-white">
+                        <img src="https://freepngimg.com/download/car/1-2-car-png-picture.png" alt="" width="200" height="auto">   </div>
+                            <!-- src="{{ $product->image }} -->
                             <div class="caption">
-                                <h4>{{ $product->productCode }}</h4>
+                                <p>{{ $product->productCode }}</p>
                                 <a href="{{ url('description/' .$product->productCode)}}">
-                                <h4>{{ $product->productName }}</h4></a>
+                                <h5>{{ $product->productName }}</h5></a>
                                 <!-- <p>{{ $product->productDescription }}</p> -->
-                                <p>{{ $product->quantityInStock }}</p>
+                                <p>stock : {{ $product->quantityInStock }}</p>
                                 <p><strong>Price: </strong>{{ $product->buyPrice }}$</p>
-                                <p class="btn-holder"><a href="{{ route('add.to.cart', $product->productCode) }}" class="btnbtn-warning btn-block text-center" role="button">Add to cart</a></p>
+                                <p class="btn-holder"><a href="{{ route('add.to.cart', $product->productCode) }}" class="hover-text btnbtn-warning btn-block text-center" role="button ">Add to cart</a></p>
                             </div>
                         </div>
                         @endif
