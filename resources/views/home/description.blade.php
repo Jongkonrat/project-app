@@ -13,7 +13,8 @@
             <p>{{$products->productVendor}}</p>
             <p><strong>Price: </strong>{{ $products->buyPrice }}$</p>
 
-            <a href="{{ url('/') }}"class="btnbtn-warning"><iclass="fa fa-angle-left"></i>Continue Shopping</a>
+            <a href="{{ url('/') }}"class="btnbtn-warning"><iclass="fa fa-angle-left"></i>Back</a>
+            <div class="btn-block text-center padding:5px "><a href="{{ route('add.to.cart', $products->productCode) }}"><b>Add to cart</b></a></div>
         </div>
 </div>
 
