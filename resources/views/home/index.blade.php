@@ -16,8 +16,9 @@
                             <img src="{{ $product->image }}"alt="">
                             <div class="caption">
                                 <h4>{{ $product->productCode }}</h4>
-                                <h4>{{ $product->productName }}</h4>
-                                <p>{{ $product->productDescription }}</p>
+                                <a href="{{ url('description/' .$product->productCode)}}">
+                                <h4>{{ $product->productName }}</h4></a>
+                                <!-- <p>{{ $product->productDescription }}</p> -->
                                 <p>{{ $product->quantityInStock }}</p>
                                 <p><strong>Price: </strong>{{ $product->buyPrice }}$</p>
                                 <p class="btn-holder"><a href="{{ route('add.to.cart', $product->productCode) }}" class="btnbtn-warning btn-block text-center" role="button">Add to cart</a></p>

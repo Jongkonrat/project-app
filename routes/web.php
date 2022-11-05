@@ -29,6 +29,10 @@ Route::group(['namespace'=> 'App\Http\Controllers'], function()
 
     Route::get('/contact', 'ContactController@contact')->name('home.contact');
 
+    Route::get('/description/{productCode}', 'ProductController@description')->name('home.description');
+    // 'description/' .$product->productCode
+
+
     Route::group(['middleware'=> ['guest']], function() {
          /**
           * Register Routes
@@ -53,6 +57,4 @@ Route::group(['namespace'=> 'App\Http\Controllers'], function()
             Route::delete('/remove-from-cart/{productCode}','CartController@remove')->name('remove from cart');
 
         });
-
-
     });
