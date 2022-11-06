@@ -54,7 +54,7 @@ width:90%; margin: auto; margin-top: 7%; background-color: white; border-radius:
         <tr style="">
             <td colspan="4"class="text-center" style="padding-top: 20px; padding-bottom: 14px">
                 <a href="{{ url('/') }}"class="btnbtn-warning" style="margin-left: 100px"><iclass="fa fa-angle-left"></i>Continue Shopping</a>
-                <button class="btn btn-success" style="margin-left: 30px">Checkout</button>
+                <a href="{{ route('check.out', $id) }}"><button class="btn btn-success" style="margin-left: 30px">Checkout</button></a>
             </td>
             <td colspan="4" style="padding-top: 20px; ">
                 <h3><strong>Total {{ $total }} $<h3><strong>

@@ -22,6 +22,15 @@ class CartController extends Controller
         return view('cart',['carts'=>$carts]);
     }
 
+    public function checkout($id){
+        
+        $cart= Carts::where('customerNumber','=',$id);
+        DB::transaction(function() use($cart){
+            $cart->delete(); 
+        });
+        return redirect('/')->with('success', 'Product checkout successfully!');
+    } 
+
     public function remove($id){
         $cart= Carts::findOrFail($id);
         $product= Product::where('productCode', '=', $cart->productCode)->
@@ -56,7 +65,8 @@ class CartController extends Controller
             $product->quantityInStock= $product->quantityInStock-1;
             $product->save();
         });
-        return redirect()->back()->with('success', 'Product added to cart successfully!');}
+        return redirect()->back()->with('success', 'Product added to cart successfully!');
+    }
 
 
 

@@ -60,6 +60,7 @@ Route::group(['namespace'=> 'App\Http\Controllers'], function()
             // Route::get('/cart', 'ProductController@cart')->name('cart');
             Route::get('/cart', 'CartController@cart')->name('cart');
             Route::get('/add-to-cart/{productCode}', 'CartController@addToCart')->name('add.to.cart');
+            Route::get('/check-out/{userid}', 'CartController@checkout')->name('check.out');
             Route::delete('/remove-from-cart/{productCode}','CartController@remove')->name('remove from cart');
 
         });
