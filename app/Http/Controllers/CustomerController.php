@@ -58,9 +58,5 @@ class CustomerController extends Controller
         return view('home.profile', \compact('customers'));
     }
 
-    public function ShowCustomer(){
-        $customers = customer::all();
-        return view('home.index', \compact('customers'));
-    }
 }
 

@@ -18,12 +18,13 @@ class User extends Authenticatable
      * @var array<int, string>
      * 
      */
-    protected $primatyKey = 'id';
+    protected $primaryKey = 'id';
     protected $fillable = [
-        'name',
+        
         'email',
         'username',
         'password',
+        
     ];
     public function setPasswordAttribute($value)
     {
@@ -48,6 +49,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public  function customer(){
+        return $this->hasOne('App\Models\Customer');
+    }
 
    
 }

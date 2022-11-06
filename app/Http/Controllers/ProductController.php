@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use App\Models\Product;
-
 use Illuminate\Http\Request;
 use App\Models\Customer;
 use App\Http\Controllers\CustomerConntroller;
@@ -22,6 +21,10 @@ class ProductController extends Controller
         return view('home.index',compact('products','customers'));
     }
 
+    public function description($productCode){
+        $products = Product::where('productCode',$productCode)->first();
+        return view('home.description', compact('products'));
+    }
     /**
      * Show the form for creating a new resource.
      *

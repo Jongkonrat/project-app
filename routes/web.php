@@ -22,31 +22,34 @@ Route::group(['namespace'=> 'App\Http\Controllers'], function()
     /*** Home Routes
      */
 
+
     Route::get('/', 'ProductController@index')->name('home.index');
+
     Route::get('/home', 'ProductController@index')->name('home.index');
 
     // Route::get('/', 'HomeController@index')->name('home.index');
 
     Route::get('/contact', 'ContactController@contact')->name('home.contact');
 
-<<<<<<< Updated upstream
-=======
     Route::get('/profile', 'CustomerController@ProfileCustomer')->name('home.profile');
     // Route::get('/', 'CustomerController@ShowCustomer')->name('home.index');
     // Route::get('/home', 'CustomerController@ShowCustomer')->name('home.index');
+
 
 
     Route::get('/description/{productCode}', 'ProductController@description')->name('home.description');
     // 'description/' .$product->productCode
 
 
->>>>>>> Stashed changes
     Route::group(['middleware'=> ['guest']], function() {
          /**
           * Register Routes
-         */
-           Route::get('/register', 'RegisterController@show')->name('register.show');
+         */Route::get('/register', 'RegisterController@show')->name('register.show');
            Route::post('/register', 'RegisterController@register')->name('register.perform');
+
+          //  Route::get('/customer', 'CustomerController@show')->name('customer.show');
+          //  Route::get('/customer', 'CustomerController@customer')->name('customer.perform');
+          
           /**
            * Login Routes
            */
@@ -55,6 +58,8 @@ Route::group(['namespace'=> 'App\Http\Controllers'], function()
         });
 
         Route::group(['middleware'=> ['auth']], function() {
+          Route::get('/customer', 'CustomerController@show')->name('customer.show');
+          Route::post('/customer', 'CustomerController@customer')->name('customer.perform');
             /**
              * Logout Routes
              */
@@ -65,6 +70,4 @@ Route::group(['namespace'=> 'App\Http\Controllers'], function()
             Route::delete('/remove-from-cart/{productCode}','CartController@remove')->name('remove from cart');
 
         });
-
-
     });

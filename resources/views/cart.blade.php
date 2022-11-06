@@ -1,20 +1,21 @@
 @extends('layouts.app-master')
 
 @section('content')
-
-<table>
+<div style="background-color: white; border-radius: 10px; padding: 18px; width: fit-content; 
+box-shadow: 0px 10px 30px 5px rgb(0,0,0,.15); width:70%; margin: auto; margin-top: 7%;">
+<table class="border-collapse align-items-center" style="justify-item: center;">
     @auth
-    <thead>
+    <thead class="border-collapse" style="text-align: center; border-bottom: dashed grey; margin: 40px;">
         <tr>
-            <th style="width:10%">Product</th>
-            <th style="width:20%">Name</th>
-            <th style="width:10%">Price</th>
-            <th style="width:8%">Quantity</th>
-            <th style="width:22%"class="text-center">Subtotal</th>
-            <th style="width:10%"></th>
+            <th style="padding-bottom: 1.2%;">Product</th>
+            <th style="padding-bottom: 1.2%; width: 30%;">Name</th>
+            <th style="padding-bottom: 1.2%; padding-right: 20px; padding-left: 20px;">Price</th>
+            <th style="padding-bottom: 1.2%;">Quantity</th>
+            <th style="padding-bottom: 1.2%; padding-right: 20px; padding-left: 20px;"class="text-center">Subtotal</th>
+            <th style="padding-bottom: 1.2%; "></th>
         </tr>
     </thead>
-    <tbody>
+    <tbody style="padding: 10px;">
     @php 
     $total = 0 ;
     $id = auth()->user()->id;
@@ -24,16 +25,21 @@
             
             @if($cart -> customerNumber == $id)
                 <tr>
-                    <td class="inner-table">{{ $cart -> productCode  }}</td>
-                    <td class="inner-table">{{ $cart -> productName  }}</td>
-                    <td class="inner-table">{{ $cart->buyPrice }}</td>
-                    <td class="inner-table">{{ $cart->quantity }}
-                    <td data-th="Subtotal" class="text-center">{{$cart->buyPrice*$cart->quantity}}</td>
-                    <td>
+                    <td class="inner-table" style="text-align: center; padding-right: 20px; 
+                    padding-left: 20px; padding-top: 10px; padding-bottom: 10px;">{{ $cart -> productCode  }}</td>
+                    <td class="inner-table" style="padding-right: 20px; padding-left: 20px;
+                    padding-top: 10px; padding-bottom: 10px;">{{ $cart -> productName  }}</td>
+                    <td class="inner-table" style="text-align: center; padding-right: 20px; padding-left: 20px;
+                    padding-top: 10px; padding-bottom: 10px;">{{ $cart->buyPrice }}</td>
+                    <td class="inner-table" style="text-align: center; padding-right: 20px; padding-left: 20px;
+                    padding-top: 10px; padding-bottom: 10px;">{{ $cart->quantity }}
+                    <td data-th="Subtotal" class="text-center" style="padding-right: 20px; padding-left: 20px;
+                    padding-top: 10px; padding-bottom: 10px;">{{$cart->buyPrice*$cart->quantity}}</td>
+                    <td style ="">
                         <form action="{{ url('remove-from-cart/'.$cart->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button class="btnbtn-danger"><i class="fa fa-trash-o"></i></button>
+                            <button class="btnbtn-danger" "><i class="fa fa-trash-o"></i></button>
                         </form>
                     </td>
                 </tr>
@@ -42,17 +48,21 @@
 
         @endforeach
     </tbody>
-    <tfoot>
-        <tr>
-            <td colspan="5" class="text-right"><h3><strong>Total {{ $total }}<h3><strong></td>
-        </tr>
-        <tr>
-            <td colspan="5"class="text-right">
-                <a href="{{ url('/') }}"class="btnbtn-warning"><iclass="fa fa-angle-left"></i>Continue Shopping</a>
-                <button class="btn btn-success">Checkout</button>
+    <tfoot style="border-top:dashed grey; margin-top: 20px;">
+        <tr style="">
+            <td colspan="4"class="text-center" style="padding-top: 20px;">
+                <a href="{{ url('/') }}"class="btnbtn-warning" style="margin-left: 100px"><iclass="fa fa-angle-left"></i>Continue Shopping</a>
+                <button class="btn btn-success" style="margin-left: 30px">Checkout</button>
+            </td>
+            <td colspan="4" style="padding-top: 20px;">
+                <h3><strong>Total {{ $total }} $<h3><strong>
             </td>
         </tr>
+        
     </tfoot>
     @endauth
 </table>
+</div>
+
+
 @endsection

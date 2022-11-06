@@ -17,12 +17,22 @@ return new class extends Migration
          if (!Schema::hasTable('users')){
             Schema::create('users', function (Blueprint $table) {
             $table->id()->startingValue(500);
-            $table->string('name')->nullable();
             $table->string('email')->unique();
             $table->string('username')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
+            // $table->string('customerName');
+            // $table->string('contactFirstName');
+            // $table->string('contactLastName');
+            // $table->Integer('phone');                
+            // $table->string('addressLine1');
+            // $table->string('addressLine2')->nullable();
+            // $table->string('city');
+            // $table->string('state')->nullable();
+            // $table->string('postalCode');
+            // $table->string('country');
+                
             $table->timestamps();
          });
             
