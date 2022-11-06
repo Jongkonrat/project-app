@@ -41,7 +41,7 @@ width:90%; margin: auto; margin-top: 7%; background-color: white; border-radius:
                         <form action="{{ url('remove-from-cart/'.$cart->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button class="btnbtn-danger" "><i class="fa fa-trash-o"></i></button>
+                            <button class="btnbtn-danger" style="background-color: #dc2626"><i class="fa fa-trash-o text-white"></i></button>
                         </form>
                     </td>
                 </tr>
