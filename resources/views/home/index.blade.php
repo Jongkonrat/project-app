@@ -32,10 +32,10 @@
 
             @if($cid == $id)
                 <p class="lead">
-                    Choose the product that you want to buy.</p>
+                    <b>Choose the product that you want to buy.</b></p>
             @else
-                <p class="lead">
-                    Please update your profile before buying.  <a href="{{ route('customer.perform')}}"><b>Add profile</b><a></p>
+                <p class="lead addprofile">
+                    <b >Please update your profile before buying!  </b> <a href="{{ route('customer.perform')}}"><b>Add profile</b><a></p>
                     
                 
             @endif
@@ -43,9 +43,9 @@
 
         <div class="flex-center position-ref full-height">
             <div class="content">
-                <div class="row">
+                <div class="row ">
                     @foreach($products as $product)
-                    <div class="col-xs-18 col-sm-6 col-md-3">
+                    <div class="xs-18 col-sm-6 col-md-3">
                         @if ($product->productLine = 'Classic Cars')
                         <div class="thumbnail ">
                             <div class="flex m-10 bg-white rounded-3xl shadow-2xl border-8 border-white">
@@ -61,8 +61,8 @@
                             </div>
                             <!-- <p>{{ $product->productDescription }}</p> -->
                             <div class="caption-stock-price">
-                                <p style="padding-right:10px">stock : {{ $product->quantityInStock }}</p>
-                                <p><strong>Price: </strong>{{ $product->buyPrice }}$</p>
+                                <p style="padding-right:10px"><b>Stock :</b> {{ $product->quantityInStock }}</p>
+                                <p><strong>Price : </strong>{{ $product->buyPrice }}$</p>
                             </div>
                             <div class="border-text-addtocart decorate-btn tracking-wider ">
 
@@ -86,7 +86,7 @@
 
     @guest
     <h1>Homepage</h1>
-    <p class="lead">You have to login before buy the products.</p>
+    <p class="lead yellowtext"><b>You have to login before buy the products.</b></p>
     <div class="flex-center position-ref full-height">
         <div class="content">
             <p>What we have in stocks.</p>

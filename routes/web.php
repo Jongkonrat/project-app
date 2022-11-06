@@ -21,10 +21,7 @@ Route::group(['namespace'=> 'App\Http\Controllers'], function()
 { 
     /*** Home Routes
      */
-
-
     Route::get('/', 'ProductController@index')->name('home.index');
-
     Route::get('/home', 'ProductController@index')->name('home.index');
 
     // Route::get('/', 'HomeController@index')->name('home.index');
@@ -32,9 +29,6 @@ Route::group(['namespace'=> 'App\Http\Controllers'], function()
     Route::get('/contact', 'ContactController@contact')->name('home.contact');
 
     Route::get('/profile', 'CustomerController@ProfileCustomer')->name('home.profile');
-    // Route::get('/', 'CustomerController@ShowCustomer')->name('home.index');
-    // Route::get('/home', 'CustomerController@ShowCustomer')->name('home.index');
-
 
 
     Route::get('/description/{productCode}', 'ProductController@description')->name('home.description');
@@ -44,12 +38,9 @@ Route::group(['namespace'=> 'App\Http\Controllers'], function()
     Route::group(['middleware'=> ['guest']], function() {
          /**
           * Register Routes
-         */Route::get('/register', 'RegisterController@show')->name('register.show');
+         */
+           Route::get('/register', 'RegisterController@show')->name('register.show');
            Route::post('/register', 'RegisterController@register')->name('register.perform');
-
-          //  Route::get('/customer', 'CustomerController@show')->name('customer.show');
-          //  Route::get('/customer', 'CustomerController@customer')->name('customer.perform');
-          
           /**
            * Login Routes
            */
@@ -58,11 +49,13 @@ Route::group(['namespace'=> 'App\Http\Controllers'], function()
         });
 
         Route::group(['middleware'=> ['auth']], function() {
-          Route::get('/customer', 'CustomerController@show')->name('customer.show');
-          Route::post('/customer', 'CustomerController@customer')->name('customer.perform');
             /**
              * Logout Routes
              */
+
+            Route::get('/customer', 'CustomerController@show')->name('customer.show');
+            Route::post('/customer', 'CustomerController@customer')->name('customer.perform');
+            
             Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
             // Route::get('/cart', 'ProductController@cart')->name('cart');
             Route::get('/cart', 'CartController@cart')->name('cart');
@@ -70,4 +63,6 @@ Route::group(['namespace'=> 'App\Http\Controllers'], function()
             Route::delete('/remove-from-cart/{productCode}','CartController@remove')->name('remove from cart');
 
         });
+
+
     });
