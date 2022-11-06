@@ -28,13 +28,21 @@ class CustomerRequest extends FormRequest
             'customerName' => 'required',
             'contactLastName' => 'required',
             'contactFirstName' => 'required',
-            'phone' => 'required',
+            'phone' => 'required|regex:/(0)[0-9]{9}/',
             'addressLine1' => 'required',
-            'addressLine2' => 'nullable',
+            'addressLine2' => 'nullable|string',
             'city' => 'required',
-            'state' => 'required',
-            'postalCode' => 'required',
+            'state' => 'nullable',
+            'postalCode' => 'nullable|regex:/[0-9]{5}/',
             'country' => 'required'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'phone' => 'Phone should be 10-digit',
+            'postalCode' => 'Postal Code should be 5-digit',
         ];
     }
 }

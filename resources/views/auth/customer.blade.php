@@ -84,7 +84,7 @@
     <!-- state -->
     <div class="form-group form-floating mb-3">
         <label class="label" for="floatingstate">State</label>
-        <input class="form-control" type="state" class="form-control" name="state" value="{{ old('state') }}" placeholder="state" required="required" autofocus>
+        <input class="form-control" type="state" class="form-control" name="state" value="{{ old('state') }}" placeholder="state" required="nullable" autofocus>
         
         @if ($errors->has('state'))
         <span class="text-danger text-left">{{ $errors->first('state') }}</span>
@@ -93,7 +93,7 @@
     <!-- postalCode -->
     <div class="form-group form-floating mb-3">
         <label class="label" for="floatingpostalCode">Postal Code</label>
-        <input class="form-control" type="postalCode" class="form-control" name="postalCode" value="{{ old('postalCode') }}" placeholder="postalCode" required="required" autofocus>
+        <input class="form-control" type="postalCode" class="form-control" name="postalCode" value="{{ old('postalCode') }}" placeholder="postalCode" required="nullable" autofocus>
         
         @if ($errors->has('postalCode'))
         <span class="text-danger text-left">{{ $errors->first('postalCode') }}</span>

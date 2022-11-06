@@ -17,7 +17,6 @@ return new class extends Migration
             Schema::create('customers', function (Blueprint $table) {
                 $table->foreign('customerNumber')->references('id')->on('users')->onDelete('cascade');
                 $table->string('customerName');
-                $table->string('customerName')->nullable();
                 $table->string('contactFirstName');
                 $table->string('contactLastName');
                 $table->Integer('phone');
@@ -25,7 +24,7 @@ return new class extends Migration
                 $table->string('addressLine2')->nullable();
                 $table->string('city');
                 $table->string('state')->nullable();
-                $table->string('postalCode');
+                $table->string('postalCode')->nullable();
                 $table->string('country');
                 $table->timestamps();
             });
