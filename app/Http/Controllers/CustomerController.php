@@ -57,5 +57,6 @@ class CustomerController extends Controller
         $customers = customer::all();
         return view('home.profile', \compact('customers'));
     }
+
 }
 

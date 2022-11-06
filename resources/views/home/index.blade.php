@@ -12,12 +12,35 @@
 <body>
     @extends('layouts.app-master')
 
+
     @section('content')
     <div class=" p-5 rounded">
         @auth
+
+        @php 
+        $id = auth()->user()->id;
+        $cid = 0;
+        @endphp
         <h1>Products</h1>
-        <p class="lead">
-            Choose the product that you want to buy.</p>
+        @foreach($customers as $customer)
+            @if($customer->customerNumber == $id)
+            @php
+                $cid = $id
+            @endphp
+            @endif
+        @endforeach
+
+            @if($cid == $id)
+                <p class="lead">
+                    Choose the product that you want to buy.</p>
+            @else
+                <p class="lead">
+                    Please update your profile before buying.  <a href="{{ route('customer.perform')}}"><b>Add profile</b><a></p>
+                    
+                
+            @endif
+        
+
         <div class="flex-center position-ref full-height">
             <div class="content">
                 <div class="row">
@@ -42,8 +65,13 @@
                                 <p><strong>Price: </strong>{{ $product->buyPrice }}$</p>
                             </div>
                             <div class="border-text-addtocart decorate-btn tracking-wider ">
-                                <!-- <p class="btn-block text-center padding:5px "><a href="{{ route('add.to.cart', $product->productCode) }}"><i>Add to cart</i></a></p> -->
-                                <div class="btn-block text-center padding:5px "><a href="{{ route('add.to.cart', $product->productCode) }}"><b>Add to cart</b></a></div>
+
+                                @foreach($customers as $customer)
+                                @if($customer->customerNumber == $id)
+                                    <div class="btn-block text-center padding:5px "><a href="{{ route('add.to.cart', $product->productCode) }}"><b>Add to cart</b></a></div>
+                                @endif
+                                @endforeach
+
                             </div>
 
                         </div>
