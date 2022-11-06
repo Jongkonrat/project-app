@@ -31,6 +31,8 @@ Route::group(['namespace'=> 'App\Http\Controllers'], function()
 
     Route::get('/contact', 'ContactController@contact')->name('home.contact');
 
+    Route::get('/profile', 'CustomerController@ProfileCustomer')->name('home.profile');
+
 
     Route::get('/description/{productCode}', 'ProductController@description')->name('home.description');
     // 'description/' .$product->productCode
