@@ -1,9 +1,10 @@
 @extends('layouts.app-master')
 
 @section('content')
-<h1>Contact page</h1>
+
     <div class=" p-5 rounded">
-        <table class="border-collapse border border-slate-500">
+        <h1>Contact</h1>
+        <table class="border-collapse border border-slate-500 mt-3">
     <thead>
         <tr>
         <th>City</th>
