@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Product;
 
 use Illuminate\Http\Request;
+use App\Models\Customer;
+use App\Http\Controllers\CustomerConntroller;
 
 class ProductController extends Controller
 {
@@ -16,7 +18,8 @@ class ProductController extends Controller
      */
     public function index(){
         $products = Product::all();
-        return view('home.index',compact('products'));
+        $customers = DB::table('customers')->get();
+        return view('home.index',compact('products','customers'));
     }
 
     /**

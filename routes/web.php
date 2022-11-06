@@ -29,6 +29,18 @@ Route::group(['namespace'=> 'App\Http\Controllers'], function()
 
     Route::get('/contact', 'ContactController@contact')->name('home.contact');
 
+<<<<<<< Updated upstream
+=======
+    Route::get('/profile', 'CustomerController@ProfileCustomer')->name('home.profile');
+    // Route::get('/', 'CustomerController@ShowCustomer')->name('home.index');
+    // Route::get('/home', 'CustomerController@ShowCustomer')->name('home.index');
+
+
+    Route::get('/description/{productCode}', 'ProductController@description')->name('home.description');
+    // 'description/' .$product->productCode
+
+
+>>>>>>> Stashed changes
     Route::group(['middleware'=> ['guest']], function() {
          /**
           * Register Routes

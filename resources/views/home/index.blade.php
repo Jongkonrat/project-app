@@ -1,11 +1,43 @@
 @extends('layouts.app-master')
 
-@section('content')
-<div class="bg-light p-5 rounded">
-    @auth
-    <h1>Products</h1>
-    <p class="lead">
-        Choose the product that you want to buy.</p>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    @extends('layouts.app-master')
+    
+
+    @section('content')
+    <div class=" p-5 rounded">
+        @auth
+        @php 
+        $id = auth()->user()->id;
+        $cid = 0;
+        @endphp
+        <h1>Products</h1>
+        @foreach($customers as $customer)
+            @if($customer->customerNumber == $id)
+            @php
+                $cid = $id
+            @endphp
+            @endif
+        @endforeach
+
+            @if($cid == $id)
+                <p class="lead">
+                    Choose the product that you want to buy.</p>
+            @else
+                <p class="lead">
+                    Please update your profile before buying.  <a href="{{ route('customer.perform')}}"><b>Add profile</b><a></p>
+                    
+                
+            @endif
+        
         <div class="flex-center position-ref full-height">
             <div class="content">
                 <div class="row">
@@ -22,6 +54,14 @@
                                 <p><strong>Price: </strong>{{ $product->buyPrice }}$</p>
                                 <p class="btn-holder"><a href="{{ route('add.to.cart', $product->productCode) }}" class="btnbtn-warning btn-block text-center" role="button">Add to cart</a></p>
                             </div>
+                            <div class="border-text-addtocart decorate-btn tracking-wider ">
+                                @foreach($customers as $customer)
+                                @if($customer->customerNumber == $id)
+                                    <div class="btn-block text-center padding:5px "><a href="{{ route('add.to.cart', $product->productCode) }}"><b>Add to cart</b></a></div>
+                                @endif
+                                @endforeach
+                            </div>
+
                         </div>
                         @endif
                     </div>
