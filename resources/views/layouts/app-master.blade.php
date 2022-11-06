@@ -32,29 +32,62 @@
             }
         }
 
-        .hover-box {
-            transition: 0.5s;
+        .border-product-name {
+            width: 230px;
+            height: 70px;
+            /* border: 2px solid white; */
+            text-align: center;
+            color: black;
         }
 
-        .hover-box:hover {
-            transform: scale(1.05);
+        .product-name a {
+            text-decoration: none;
+            color: black;
+            font-weight: 700;
         }
 
-        .hover-text {
-            transition: 0.5s;
+        .product-name a h5 {
+            font-size: 15px;
+            transition: color .4s ease;
+            line-height: 25px;
         }
 
-        .hover-text:hover {
-            transform: scale(1.2);
+        .product-name a:hover h5 {
+            color: rgb(172, 173, 173);
         }
 
-        .hover-fx {
-            transition: 0.5s;
+        .caption-stock-price {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            flex-direction: row;
+            margin-top: 5px;
         }
 
-        .hover-fx:hover {
-            transform: scale(1.1);
+        .border-text-addtocart {
+            /* border: 2px solid white; */
+            /* background-color: #FBE171; */
+            margin-bottom: 50px;
+            border-radius: 10px;
         }
+
+
+        .decorate-btn a {
+            text-decoration: none;
+            color: rgb(255, 169, 15);
+            font-weight: 700;
+        }
+
+        .decorate-btn a b {
+            font-size: 15px;
+            transition: color .4s ease;
+            line-height: 25px;
+        }
+
+        .decorate-btn a:hover b {
+            color: rgb(111, 181, 96);
+        }
+
     </style>
 
     <!--Custom styles for this template -->

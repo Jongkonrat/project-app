@@ -32,13 +32,10 @@
         <span class="text-danger text-left">{{ $errors->first('password_confirmation') }}</span>
         @endif
     </div>
-    <div class="form-group form-floating mb-3">
-        <input type="name" class="form-control" name="name" value="{{ old('name') }}" placeholder="Name" required="required" autofocus>
-        <label for="floatingEmail">Name</label>
-        @if ($errors->has('name'))
-        <span class="text-danger text-left">{{ $errors->first('name') }}</span>
-        @endif
-    </div>
+    
+
+     <!--  -->
+
     <button class="w-100 btn btn-lg btn-primary" type="submit">Register</button>
     @include('auth.partials.copy')
 </form>
