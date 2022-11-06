@@ -52,5 +52,10 @@ class CustomerController extends Controller
 
         return redirect('/')->with('success', "Account successfully registered.");
     }
+
+    public function ProfileCustomer(){
+        $customers = customer::all();
+        return view('home.profile', \compact('customers'));
+    }
 }
 
