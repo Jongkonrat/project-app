@@ -88,6 +88,10 @@
             color: rgb(111, 181, 96);
         }
 
+        .setcolor a b{
+            color: rgb(255, 169, 15);
+        }
+
     </style>
 
     <!--Custom styles for this template -->
