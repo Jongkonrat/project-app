@@ -92,6 +92,22 @@
             color: rgb(255, 169, 15);
         }
 
+        .yellowtext b{
+            color: rgb(255, 169, 15);
+        }
+
+        .yellowtext1 b{
+            color: rgb(255, 169, 15);
+        }
+
+        
+        .addprofile a:hover b {
+            color: rgb(255, 128, 0);
+        }
+        .navbar-deco:hover{
+            transform: scale(1.05);
+        }  
+
     </style>
 
     <!--Custom styles for this template -->
