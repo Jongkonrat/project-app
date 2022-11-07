@@ -9,7 +9,7 @@ width:90%; margin: auto; margin-top: 7%; background-color: white; border-radius:
     @auth
     <thead class="border-collapse" style="text-align: center; border-bottom: dashed grey; margin: 40px; ">
         <tr>
-            <th style="padding-bottom: 1.2%; padding-top: 1.2%;">Product</th>
+            <th style="padding-bottom: 1.2%; padding-top: 1.2%;"></th>
             <th style="padding-bottom: 1.2%; width: 30%; padding-top: 1.2%;">Name</th>
             <th style="padding-bottom: 1.2%; padding-right: 20px; padding-left: 20px; padding-top: 1.2%;">Price</th>
             <th style="padding-bottom: 1.2%; padding-top: 1.2%;">Quantity</th>
@@ -42,9 +42,10 @@ width:90%; margin: auto; margin-top: 7%; background-color: white; border-radius:
 
                 <tr>
                     <td class="inner-table" style="text-align: center; padding-right: 20px; 
-                    padding-left: 20px; padding-top: 10px; padding-bottom: 10px;">{{ $cart -> productCode  }}</td>
+                    padding-left: 20px; padding-top: 10px; padding-bottom: 10px;">
+                    <img src="https://freepngimg.com/download/car/1-2-car-png-picture.png" alt="" width="200" height="auto"></td>
                     <td class="inner-table" style="padding-right: 20px; padding-left: 20px;
-                    padding-top: 10px; padding-bottom: 10px;">{{ $productName }}</td>
+                    padding-top: 10px; padding-bottom: 10px;"><a href="{{ url('description/' .$cart->productCode)}}" style="color:black">{{ $productName }}</a></td>
                     <td class="inner-table" style="text-align: center; padding-right: 20px; padding-left: 20px;
                     padding-top: 10px; padding-bottom: 10px;">{{ $buyPrice }}</td>
                     <td class="inner-table" style="text-align: center; padding-right: 20px; padding-left: 20px;
