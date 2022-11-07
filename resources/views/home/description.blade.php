@@ -31,7 +31,7 @@
                                 @endif
                             @endforeach
                             @if($haveprofile == true)
-                                @if($product->quantityInStock <=0)
+                                @if($products->quantityInStock <=0)
                                     <p class="text-center">Out of Stock</p>
                                 @else
                                     <div class="btn-block text-center padding:5px "><a href="{{ route('add.to.cart', $product->productCode) }}"><b>Add to cart</b></a></div>
