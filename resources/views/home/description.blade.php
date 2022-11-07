@@ -1,11 +1,7 @@
 @extends('layouts.app-master')
 
 @section('content')
-@php 
-        $id = auth()->user()->id;
-        $cid = 0;
-        $haveprofile = false;
-@endphp
+
 <div class=" p-5 rounded">
     <h1>{{$products->productName }}</h1>
 
@@ -22,6 +18,11 @@
                 <iclass="fa fa-angle-left"></i>Back
             </a>
             @auth
+            @php 
+        $id = auth()->user()->id;
+        $cid = 0;
+        $haveprofile = false;
+@endphp
                             @foreach($customers as $customer)
                                 @if($customer->customerNumber == $id)
                                     @php
