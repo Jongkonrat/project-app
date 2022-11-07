@@ -22,6 +22,8 @@ return new class extends Migration
                 $table->integer('quantity');
                 $table->timestamps();
 
+                $table->index('customerNumber');
+
                 // $table->foreign('productCode')->references('productCode')->on('products')->onDelete('cascade')->onUpdate('cascade');
                 // $table->foreign('customerNumber')->references('customerNumber')->on('customers')->onDelete('cascade');
             });
