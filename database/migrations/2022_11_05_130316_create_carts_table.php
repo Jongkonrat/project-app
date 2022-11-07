@@ -18,12 +18,12 @@ return new class extends Migration
             Schema::create('carts', function (Blueprint $table) {
                 $table->id();
                 $table->unsignedInteger('customerNumber');
-                $table-	varchar('productCode',15);
+                $table->string('prodructCode',15)->index();
                 $table->integer('quantity');
                 $table->timestamps();
 
-                $table->foreign('productCode')->references('productCode')->on('products')->onDelete('cascade')->onUpdate('cascade');
-                $table->foreign('customerNumber')->references('customerNumber')->on('customers')->onDelete('cascade');
+                // $table->foreign('productCode')->references('productCode')->on('products')->onDelete('cascade')->onUpdate('cascade');
+                // $table->foreign('customerNumber')->references('customerNumber')->on('customers')->onDelete('cascade');
             });
         }
 
