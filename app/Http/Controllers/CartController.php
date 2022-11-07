@@ -37,6 +37,39 @@ class CartController extends Controller
         return redirect('/')->with('success', 'Product checkout successfully!');
     } 
 
+    public function delete($id){
+        $cart= Carts::findOrFail($id);
+        $product= Product::where('productCode', '=', $cart->productCode)->first();
+        DB::transaction(function() use($product,$cart){
+            if($cart->quantity -1 == 0){
+                $cart -> delete();
+            }else{
+                $product->quantityInStock = $product->quantityInStock+1;
+                $cart->quantity = $cart->quantity-1; 
+                $cart ->save();
+                $product->save();
+            }
+            
+        });
+        return back()->with('success', 'Product delete successfully');
+    }
+
+    public function add($id){
+        $cart= Carts::findOrFail($id);
+        $product= Product::where('productCode', '=', $cart->productCode)->first();
+        DB::transaction(function() use($product,$cart){
+            if($cart->quantity+1 < $product -> quantityInStock){
+                $product->quantityInStock = $product->quantityInStock - 1;
+                $cart->quantity = $cart->quantity + 1; 
+                $cart ->save();
+                $product->save();
+            }
+            
+        });
+        return back()->with('success', 'Product delete successfully');
+    }
+
+
     public function remove($id){
         $cart= Carts::findOrFail($id);
         $product= Product::where('productCode', '=', $cart->productCode)->

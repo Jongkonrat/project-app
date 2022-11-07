@@ -48,7 +48,12 @@ width:90%; margin: auto; margin-top: 7%; background-color: white; border-radius:
                     <td class="inner-table" style="text-align: center; padding-right: 20px; padding-left: 20px;
                     padding-top: 10px; padding-bottom: 10px;">{{ $buyPrice }}</td>
                     <td class="inner-table" style="text-align: center; padding-right: 20px; padding-left: 20px;
-                    padding-top: 10px; padding-bottom: 10px;">{{ $cart->quantity }}
+                    padding-top: 10px; padding-bottom: 10px;">
+                    @if($product->quantityInStock > $cart->quantity )
+                        <a href="{{ route('add.from.cart', $cart->id) }}">+</a>
+                    @endif
+                    {{ $cart->quantity }}
+                    <a href="{{ route('delete.from.cart', $cart->id) }}">-</a>
                     <td data-th="Subtotal" class="text-center" style="padding-right: 20px; padding-left: 20px;
                     padding-top: 10px; padding-bottom: 10px;">{{$buyPrice*$cart->quantity}}</td>
                     <td style ="">
