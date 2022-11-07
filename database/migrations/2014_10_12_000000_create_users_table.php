@@ -21,18 +21,7 @@ return new class extends Migration
             $table->string('username')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->rememberToken();
-            // $table->string('customerName');
-            // $table->string('contactFirstName');
-            // $table->string('contactLastName');
-            // $table->Integer('phone');                
-            // $table->string('addressLine1');
-            // $table->string('addressLine2')->nullable();
-            // $table->string('city');
-            // $table->string('state')->nullable();
-            // $table->string('postalCode');
-            // $table->string('country');
-                
+            $table->rememberToken();        
             $table->timestamps();
          });
             

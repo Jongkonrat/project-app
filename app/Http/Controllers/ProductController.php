@@ -25,6 +25,17 @@ class ProductController extends Controller
         $products = Product::where('productCode',$productCode)->first();
         return view('home.description', compact('products'));
     }
+
+    public function cart(){
+        return $this->hasMany(Carts::class );
+    }
+
+    public function showincart(){
+        $products = DB::table('products')->get();
+        return view('cart',compact('products'));
+    }
+
+    
     /**
      * Show the form for creating a new resource.
      *

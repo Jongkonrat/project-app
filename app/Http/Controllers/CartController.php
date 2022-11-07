@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Product;
 use App\Models\Carts;
+use App\Http\Controllers\ProductController;
 
 class CartController extends Controller
 {
@@ -19,7 +20,12 @@ class CartController extends Controller
     }  
     public function cart(){
         $carts= DB::select('select * from carts');
-        return view('cart',['carts'=>$carts]);
+        $products = DB::table('products')->get();
+        return view('cart',['carts'=>$carts,'products'=>$products]);
+    }
+
+    public function product(){
+        return $this->belongsTo(Product::class, 'productCode');
     }
 
     public function checkout($id){
@@ -57,9 +63,7 @@ class CartController extends Controller
                 $cart= new Carts();
                 $cart->customerNumber = $userid = auth()->user()->id;
                 $cart->productCode = $product-> productCode;
-                $cart->productName = $product-> productName;
                 $cart->quantity= 1;
-                $cart->buyPrice= $product->buyPrice;
                 $cart->save();
             }
             $product->quantityInStock= $product->quantityInStock-1;

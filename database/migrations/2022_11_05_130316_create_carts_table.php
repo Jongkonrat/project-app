@@ -17,12 +17,13 @@ return new class extends Migration
         if (!Schema::hasTable('carts')){
             Schema::create('carts', function (Blueprint $table) {
                 $table->id();
-                $table->unsignedInteger('customerNumber')->nullable();
-                $table->string('productName')->nullable();
-                $table->string('productCode',15)->nullable();
-                $table->decimal('buyPrice',10,2);
+                $table->unsignedInteger('customerNumber');
+                $table-	varchar('productCode',15);
                 $table->integer('quantity');
                 $table->timestamps();
+
+                $table->foreign('productCode')->references('productCode')->on('products')->onDelete('cascade')->onUpdate('cascade');
+                $table->foreign('customerNumber')->references('customerNumber')->on('customers')->onDelete('cascade');
             });
         }
 

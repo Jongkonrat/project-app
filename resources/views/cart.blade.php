@@ -21,22 +21,36 @@ width:90%; margin: auto; margin-top: 7%; background-color: white; border-radius:
     @php 
     $total = 0 ;
     $id = auth()->user()->id;
-    
+
+
     @endphp
         @foreach( $carts as $cart )
             
             @if($cart -> customerNumber == $id)
+            @php
+                foreach($products as $product){
+                    if($cart->productCode == $product->productCode){
+                    $productName = $product->productName;
+                    $buyPrice = $product->buyPrice;
+                    }
+                }
+                
+                    
+
+            @endphp
+
+
                 <tr>
                     <td class="inner-table" style="text-align: center; padding-right: 20px; 
                     padding-left: 20px; padding-top: 10px; padding-bottom: 10px;">{{ $cart -> productCode  }}</td>
                     <td class="inner-table" style="padding-right: 20px; padding-left: 20px;
-                    padding-top: 10px; padding-bottom: 10px;">{{ $cart -> productName  }}</td>
+                    padding-top: 10px; padding-bottom: 10px;">{{ $productName }}</td>
                     <td class="inner-table" style="text-align: center; padding-right: 20px; padding-left: 20px;
-                    padding-top: 10px; padding-bottom: 10px;">{{ $cart->buyPrice }}</td>
+                    padding-top: 10px; padding-bottom: 10px;">{{ $buyPrice }}</td>
                     <td class="inner-table" style="text-align: center; padding-right: 20px; padding-left: 20px;
                     padding-top: 10px; padding-bottom: 10px;">{{ $cart->quantity }}
                     <td data-th="Subtotal" class="text-center" style="padding-right: 20px; padding-left: 20px;
-                    padding-top: 10px; padding-bottom: 10px;">{{$cart->buyPrice*$cart->quantity}}</td>
+                    padding-top: 10px; padding-bottom: 10px;">{{$buyPrice*$cart->quantity}}</td>
                     <td style ="">
                         <form action="{{ url('remove-from-cart/'.$cart->id) }}" method="POST">
                             @csrf
@@ -45,7 +59,7 @@ width:90%; margin: auto; margin-top: 7%; background-color: white; border-radius:
                         </form>
                     </td>
                 </tr>
-                @php $total += $cart->buyPrice*$cart->quantity @endphp
+                @php $total += $buyPrice*$cart->quantity @endphp
             @endif
 
         @endforeach
