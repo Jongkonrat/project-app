@@ -4,8 +4,8 @@
 
 <!-- background-color: white; border-radius: 10px; padding: 18px; width: fit-content; 
 box-shadow: 0px 10px 30px 5px rgb(0,0,0,.15); width:70%; margin: auto; margin-top: 7%; -->
-<table class="border-collapse align-items-center" style="justify-item: center;box-shadow: 0px 10px 30px 5px rgb(0,0,0,.15);;
-width:90%; margin: auto; margin-top: 7%; background-color: white; border-radius: 10px;">
+<table class="border-collapse align-items-center" style="justify-item: center;box-shadow: 0px 10px 30px 5px rgb(184, 184, 184);
+width:90%; margin: auto; margin-top: 7%; background-color: #E0E0E0; border-radius: 10px;">
     @auth
     <thead class="border-collapse" style="text-align: center; border-bottom: dashed grey; margin: 40px; ">
         <tr>

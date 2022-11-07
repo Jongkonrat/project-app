@@ -2,12 +2,16 @@
 
 @section('content')
 
-<div class=" p-5 rounded">
+<div class=" p-5 rounded contain" >
     <h1>{{$products->productName }}</h1>
 
     <div style="padding: 10px " class="rounded-lg">
-        <img src="https://freepngimg.com/download/car/1-2-car-png-picture.png" alt="" width="300" height="mx-auto">
-        <div style="padding: 10px">
+        <div style="display: flex;">
+            <div style="flex: 50%;">
+                <img src="https://freepngimg.com/download/car/1-2-car-png-picture.png" alt="" width="300" height="mx-auto">
+            </div>
+            <div style="flex: 50%;">
+            <div style="padding: 10px">
             <p>{{ $products->productDescription }}</p>
             <p><b>Instock: </b> {{ $products->quantityInStock }}</p>
             <p><b>Productline: </b> {{$products->productLine}}</p>
@@ -42,6 +46,9 @@
                             @endif
             
             @endauth
+            </div>
+        </div>
+        
         </div>
     </div>
 </div>
@@ -68,6 +75,15 @@
     img{
         display: block;
         margin: auto;
+    }
+
+    .contain{
+        background-color: #E0E0E0;
+        box-shadow: 0px 10px 30px 5px rgb(184, 184, 184);
+        border-radius: 20px;
+        padding-top: 25px;
+        padding-bottom: 25px;
+        margin-top: 7%;
     }
 </style>
 
