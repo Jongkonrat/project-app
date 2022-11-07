@@ -1,6 +1,6 @@
 @extends('layouts.auth-master')
 @section('content')
-<section class="ftco-section">
+<section>
     <div class="container">
         <!-- <div class="row justify-content-center">
 			<div class="col-md-6 text-center mb-5">
@@ -13,8 +13,7 @@
         <div class="row justify-content-center">
 				<div class="col-md-12 col-lg-10">
 					<div class="wrap d-md-flex">
-						<div class="img"><img src="https://ae01.alicdn.com/kf/HTB1InpLIpXXXXX.XpXXq6xXFXXXm/A-hot-super-sports-car-wallpaper-HD-Home-Furnishing-vintage-car-car-poster-art-silk-printing.jpg_Q90.jpg_.webp" 
-                        alt=""></div>
+						<div class="img"></div>
 			        </div>
 						<div class="login-wrap p-4 p-md-5">
 			      	<div class="d-flex">
@@ -45,8 +44,11 @@
             <button class="form-control btn btn-primary rounded submit px-3" type ="submit">Login</button>
         </div>
         </div>    
-        @include('auth.partials.copy')
+        <!-- @include('auth.partials.copy') -->
     </form>
+    <div class="col-md-12 col-lg-10">
+      <p class="text-center">Not a member? <a href="{{ url('/register') }}" data-toggle="tab">Sign Up</a></p>
+    </div>
     </div>
 </section>
 @endsection
