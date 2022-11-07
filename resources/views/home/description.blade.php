@@ -35,7 +35,9 @@
                                 @if($products->quantityInStock <=0)
                                     <p class="text-center">Out of Stock</p>
                                 @else
-                                    <div class="btn-block text-center padding:5px "><a href="{{ route('add.to.cart', $products->productCode) }}"><b>Add to cart</b></a></div>
+                                    <div class="btn-block text-center padding:5px ">
+                                        <a href="{{ route('add.to.cart', $products->productCode) }}"><button><b>Add to cart</b></button></a>
+                                    </div>
                                 @endif
                             @endif
             
@@ -54,6 +56,18 @@
     p {
         color: #000;
         font-family: verdana;
+    }
+
+    button {
+        background-color: #ffa90f;
+        padding: 10px;
+        border: none;
+        border-radius: 10px;
+    }
+
+    img{
+        display: block;
+        margin: auto;
     }
 </style>
 
