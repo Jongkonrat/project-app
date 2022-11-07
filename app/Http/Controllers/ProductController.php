@@ -23,7 +23,8 @@ class ProductController extends Controller
 
     public function description($productCode){
         $products = Product::where('productCode',$productCode)->first();
-        return view('home.description', compact('products'));
+        $customers = DB::table('customers')->get();
+        return view('home.description', compact('products','customers'));
     }
 
     public function cart(){

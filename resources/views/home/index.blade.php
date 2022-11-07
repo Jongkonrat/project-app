@@ -20,6 +20,7 @@
         @php 
         $id = auth()->user()->id;
         $cid = 0;
+        $haveprofile = false;
         @endphp
         <h1>Products</h1>
         @foreach($customers as $customer)
@@ -66,11 +67,21 @@
                             </div>
                             <div class="border-text-addtocart decorate-btn tracking-wider ">
 
-                                @foreach($customers as $customer)
+                            @foreach($customers as $customer)
                                 @if($customer->customerNumber == $id)
+                                    @php
+                                        $haveprofile = true;
+                                    @endphp
+                                    
+                                @endif
+                            @endforeach
+                            @if($haveprofile == true)
+                                @if($product->quantityInStock <=0)
+                                    <p class="text-center">Out of Stock</p>
+                                @else
                                     <div class="btn-block text-center padding:5px "><a href="{{ route('add.to.cart', $product->productCode) }}"><b>Add to cart</b></a></div>
                                 @endif
-                                @endforeach
+                            @endif
 
                             </div>
 

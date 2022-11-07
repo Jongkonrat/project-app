@@ -4,12 +4,21 @@
 
     @php
     $id = auth()->user()->id;
+    $havep = false;
     @endphp
     <div class="contain">
         <div>
             <div style="display: flex;">
                 @foreach($customers as $customer)
                     @if($customer -> customerNumber == $id)
+                    @php
+                        $havep = true
+                    @endphp
+                    
+                    @endif
+                @endforeach
+
+                @if($havep == true)
                         <!-- pic -->
                         <div style="flex: 50%;">
                             <div style="margin-top: 10%; margin-bottom: 4%;">
@@ -84,8 +93,10 @@
                             </div>
                             
                         </div>  
-                    @endif
-                @endforeach
+                @else
+                <p class="lead addprofile">
+                    <b >Please update your profile</b> <a href="{{ route('customer.perform')}}"><b>Add profile</b><a></p>
+                @endif
             </div>
         </div>
     </div>
