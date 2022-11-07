@@ -58,6 +58,9 @@
         </div>    
         <!-- @include('auth.partials.copy') -->
     </form>
+    <div class="col-md-12 col-lg-10">
+      <p class="text-center">Already a member? <a href="{{ url('/login') }}" data-toggle="tab">Login</a></p>
+    </div>
     </div>
 </section>
 @endsection
