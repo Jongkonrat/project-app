@@ -18,7 +18,7 @@ return new class extends Migration
             Schema::create('carts', function (Blueprint $table) {
                 $table->id();
                 $table->unsignedInteger('customerNumber');
-                $table->string('prodructCode',15)->index();
+                $table->string('productCode',15)->nullable();
                 $table->integer('quantity');
                 $table->timestamps();
 

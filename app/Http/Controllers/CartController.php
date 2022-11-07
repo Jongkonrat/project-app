@@ -107,8 +107,7 @@ class CartController extends Controller
     public function addToCart($productCode){
         $product= Product::findOrFail($productCode);
         $cart = Carts::where('productCode', '=', $productCode)->
-        where('customerNumber','=',$userid = auth()->user()->id)->
-        first();
+        where('customerNumber','=',$userid = auth()->user()->id)->first();
         
         DB::transaction(function() use($product,$cart){
             if($cart!= null) {
