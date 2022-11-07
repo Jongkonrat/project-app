@@ -35,6 +35,12 @@ class ProductController extends Controller
         return view('cart',compact('products'));
     }
 
+    public function search(){
+        $search_text = $_GET['query'];
+        $products = Product::where('productName','LIKE','%'.$search_text.'%')->get();
+        $customers = DB::table('customers')->get();
+        return view('home.search',compact('products','customers','search_text'));
+    }
     
     /**
      * Show the form for creating a new resource.

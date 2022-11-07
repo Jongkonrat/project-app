@@ -16,9 +16,9 @@
             </ul>
         </div>
         <div class="d-flex flex-wrap align-items-center justify-content-end" style="align-items: flex-end; width: fit-content;margin-left: auto;">
-            <!-- <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-                <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
-            </form> -->
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 type="get" action="{{url('/search')}}">
+                <input type="search" class="form-control form-control-dark" name="query" placeholder="Search..." aria-label="Search">
+            </form>
             @auth
             <div class="navbar-deco">
                 <a href="{{ url('cart') }}" class="nav-link  text-white" style="border-radius: 5px; padding: 7px; padding-left: 6px; padding-right: 6px;

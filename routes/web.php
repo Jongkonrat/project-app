@@ -22,9 +22,8 @@ Route::group(['namespace'=> 'App\Http\Controllers'], function()
     /*** Home Routes
      */
     Route::get('/', 'ProductController@index')->name('home.index');
+    Route::get('/search', 'ProductController@search')->name('home.search');
     Route::get('/home', 'ProductController@index')->name('home.index');
-
-    // Route::get('/', 'HomeController@index')->name('home.index');
 
     Route::get('/contact', 'ContactController@contact')->name('home.contact');
 
