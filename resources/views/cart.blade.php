@@ -16,14 +16,39 @@ width:90%; margin: auto; margin-top: 7%; background-color: white; border-radius:
             <th style="padding-bottom: 1.2%; padding-right: 20px; padding-left: 20px; padding-top: 1.2%;"class="text-center">Subtotal</th>
             <th style="padding-bottom: 1.2%; padding-top: 1.2%;"></th>
         </tr>
+        
     </thead>
+    
     <tbody style="padding: 10px;">
     @php 
     $total = 0 ;
     $id = auth()->user()->id;
-
-
     @endphp
+
+            <tr>
+                <td class="inner-table" style="text-align: center; padding-right: 20px; 
+                    padding-left: 20px; padding-top: 10px; padding-bottom: 10px;">
+                    </td>
+                    <td class="inner-table" style="padding-right: 20px; padding-left: 20px;
+                    padding-top: 10px; padding-bottom: 10px;">
+                    <td class="inner-table" style="text-align: center; padding-right: 20px; padding-left: 20px;
+                    padding-top: 10px; padding-bottom: 10px;"></td>
+                    <td class="inner-table" style="text-align: center; padding-right: 20px; padding-left: 20px;
+                    padding-top: 10px; padding-bottom: 10px;">
+                    
+                    <td data-th="Subtotal" class="text-center" style="padding-right: 20px; padding-left: 20px;
+                    padding-top: 10px; padding-bottom: 10px;"></td>
+                    <td style ="">
+                        <form action="{{ url('clear/'.$id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button style="padding: 0; border: none; background: none;color:red">Clear all</button>
+                        </form>
+                    </td>
+                    
+                </tr>
+
+
         @foreach( $carts as $cart )
             
             @if($cart -> customerNumber == $id)

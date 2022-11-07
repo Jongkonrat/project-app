@@ -10,14 +10,14 @@ use App\Http\Controllers\ProductController;
 
 class CartController extends Controller
 {
-    public function index()
-    {
-        $cart = session()->get('cart');
-        if ($cart == null)
-            $cart = [];
+    // public function index()
+    // {
+    //     $cart = session()->get('cart');
+    //     if ($cart == null)
+    //         $cart = [];
 
-        return view('cart.index')->with('cart', $cart);
-    }  
+    //     return view('cart.index')->with('cart', $cart);
+    // }  
     public function cart(){
         $carts= DB::select('select * from carts');
         $products = DB::table('products')->get();
@@ -80,6 +80,28 @@ class CartController extends Controller
             $cart->delete(); 
         });
         return back()->with('success', 'Product removed successfully');
+    }
+
+    public function clear($id){
+        // $carts= Carts::findOrFail($id);
+        $cart= Carts::where('customerNumber','=',$id);
+        
+        DB::transaction(function() use($cart){
+            foreach ($cart as $c){
+                $product= Product::where('productCode', '=', $c->productCode)->first();
+                $product->quantityInStock=$product->quantityInStock+$cart->quantity;
+                $product->save();
+            }
+            
+            $cart->delete(); 
+        });
+        // return redirect('/')->with('success', 'Product checkout successfully!');
+        
+            
+        
+        
+        // return back()->with('success', 'Product removed successfully');
+        return redirect()->back()->with('success', 'added to cart successfully');
     }
     
     public function addToCart($productCode){
