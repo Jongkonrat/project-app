@@ -22,7 +22,7 @@
                         <!-- pic -->
                         <div style="flex: 50%;">
                             <div style="margin-top: 10%; margin-bottom: 4%;">
-                                <img src="https://www.techhub.in.th/wp-content/uploads/2021/05/577280151-1.jpg" alt="">
+                                <img src="https://www.freeiconspng.com/thumbs/person-icon/person-icon-person-icon-17.jpg" alt="">
                             </div>
                             <h1 style="text-align: center;">{{ $customer->customerName }}</h1>
                             <div class="idBox">
